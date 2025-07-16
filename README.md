@@ -180,16 +180,16 @@ npm run build
 4. Push to branch: `git push origin feature/amazing-feature`
 5. Open a Pull Request
 
+## ⭐ Star this repository if you found it helpful!
+
+[Live Demo](https://shiny-frangipane-a7e6f0.netlify.app) • [Report Bug](https://github.com/yourusername/mausam-weather-app/issues) • [Request Feature](https://github.com/yourusername/mausam-weather-app/issues)
+
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Made with ❤️ by **Kris**
-
 <div align="center">
-
-**⭐ Star this repository if you found it helpful!**
-
-[Live Demo](https://shiny-frangipane-a7e6f0.netlify.app) • [Report Bug](https://github.com/yourusername/mausam-weather-app/issues) • [Request Feature](https://github.com/yourusername/mausam-weather-app/issues)
+  
+Made with ❤️ by **Kris**
 
 </div>
