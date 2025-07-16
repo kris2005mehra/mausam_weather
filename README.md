@@ -2,11 +2,6 @@
 
 A stunning, production-ready weather application with immersive animated backgrounds that change based on real-time weather conditions. Built with React, TypeScript, and Tailwind CSS.
 
-![Mausam Weather App](https://img.shields.io/badge/Weather-App-blue?style=for-the-badge&logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-
 ## 🌟 Features
 
 ### 🎨 Dynamic Animated Backgrounds
@@ -46,6 +41,10 @@ A stunning, production-ready weather application with immersive animated backgro
 - **Loading States**: Beautiful animated loading indicators
 - **Theme Toggle**: Dark/Light mode with system preference detection
 - **Performance Optimized**: Lazy loading and optimized animations
+## 📸 ScreenShots
+<img width="1460" height="824" alt="Screenshot 2025-07-16 at 3 49 52 PM" src="https://github.com/user-attachments/assets/1070e8f5-6571-4a1e-9948-f000dbb5545d" />
+<img width="1460" height="824" alt="Screenshot 2025-07-16 at 3 50 13 PM" src="https://github.com/user-attachments/assets/04f70ddd-2fb9-43ae-a2b4-d680e86c3fce" />
+<img width="1460" height="824" alt="Screenshot 2025-07-16 at 3 50 34 PM" src="https://github.com/user-attachments/assets/2bb8381e-503b-4c29-8c6e-63eb6340a493" />
 
 ## 🚀 Live Demo
 
@@ -185,7 +184,7 @@ npm run build
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-**Kris** - Made with ❤️
+Made with ❤️ by **Kris**
 
 <div align="center">
 
