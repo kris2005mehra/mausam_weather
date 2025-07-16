@@ -14,6 +14,8 @@ export interface WeatherData {
     uv_index: number;
     wind_speed: number;
     wind_deg: number;
+    weathercode: number;
+    is_day: number;
     weather: {
       main: string;
       description: string;

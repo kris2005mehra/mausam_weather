@@ -37,6 +37,8 @@ export const useWeather = (location: GeoLocation | null) => {
           uv_index: data.current.uv,
           wind_speed: data.current.wind_kph / 3.6, // Convert to m/s
           wind_deg: data.current.wind_degree,
+          weathercode: data.current_weather.weathercode,
+          is_day: data.current_weather.is_day,
           weather: {
             main: data.current.condition.text.split(' ')[0],
             description: data.current.condition.text.toLowerCase(),

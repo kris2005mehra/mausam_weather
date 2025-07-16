@@ -42,18 +42,10 @@ const WeatherDashboard: React.FC = () => {
 
   const weatherCondition = weather 
     ? getWeatherCondition(
-        weather.current.weather.icon === '01d' ? 0 : 
-        weather.current.weather.icon === '02d' ? 1 :
-        weather.current.weather.icon === '03d' ? 2 :
-        weather.current.weather.icon === '04d' ? 3 :
-        weather.current.weather.icon === '09d' ? 61 :
-        weather.current.weather.icon === '10d' ? 63 :
-        weather.current.weather.icon === '11d' ? 95 :
-        weather.current.weather.icon === '13d' ? 73 :
-        weather.current.weather.icon === '50d' ? 45 : 0,
+        weather.current.weathercode || 0,
         weather.current.temp,
         weather.current.wind_speed,
-        true // Assuming day time for now, you can enhance this with actual sunrise/sunset data
+        weather.current.is_day === 1
       )
     : { type: 'clear' as const, intensity: 'light' as const };
 

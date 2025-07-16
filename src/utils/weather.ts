@@ -16,7 +16,7 @@ export const getWeatherCondition = (weatherCode: number, temperature: number, wi
     return { type: 'hot', intensity: 'heavy' };
   }
   
-  // Map WMO weather codes to conditions
+  // Map weather codes to conditions based on Open-Meteo WMO codes
   if (weatherCode === 0) {
     return { type: 'clear', intensity: 'light' };
   }
