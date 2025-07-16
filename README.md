@@ -185,21 +185,7 @@ npm run build
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
-
-- **WeatherAPI.com** for reliable weather data
-- **Lucide React** for beautiful icons
-- **Tailwind CSS** for utility-first styling
-- **React** and **TypeScript** for the robust foundation
-
-## 📧 Contact
-
 **Kris** - Made with ❤️
-
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
-
----
 
 <div align="center">
 
