@@ -56,7 +56,7 @@ export interface WeatherAlert {
 }
 
 export interface WeatherCondition {
-  type: 'clear' | 'rain' | 'snow' | 'thunderstorm' | 'clouds' | 'fog' | 'night';
+  type: 'clear' | 'rain' | 'snow' | 'thunderstorm' | 'clouds' | 'fog' | 'night' | 'windy' | 'hot';
   intensity: 'light' | 'moderate' | 'heavy';
 }
 

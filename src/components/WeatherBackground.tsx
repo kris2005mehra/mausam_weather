@@ -14,6 +14,10 @@ const WeatherBackground: React.FC<WeatherBackgroundProps> = ({ condition, isDark
       switch (condition.type) {
         case 'clear':
           return `${baseClass} bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900`;
+        case 'hot':
+          return `${baseClass} bg-gradient-to-br from-orange-900 via-red-900 to-pink-900`;
+        case 'windy':
+          return `${baseClass} bg-gradient-to-br from-teal-900 via-cyan-900 to-blue-900`;
         case 'rain':
           return `${baseClass} bg-gradient-to-br from-gray-900 via-blue-900 to-slate-900`;
         case 'snow':
@@ -31,6 +35,10 @@ const WeatherBackground: React.FC<WeatherBackgroundProps> = ({ condition, isDark
       switch (condition.type) {
         case 'clear':
           return `${baseClass} bg-gradient-to-br from-yellow-300 via-orange-400 to-pink-400`;
+        case 'hot':
+          return `${baseClass} bg-gradient-to-br from-red-400 via-orange-500 to-yellow-400`;
+        case 'windy':
+          return `${baseClass} bg-gradient-to-br from-cyan-300 via-teal-400 to-blue-500`;
         case 'rain':
           return `${baseClass} bg-gradient-to-br from-gray-500 via-blue-400 to-slate-600`;
         case 'snow':
@@ -47,6 +55,113 @@ const WeatherBackground: React.FC<WeatherBackgroundProps> = ({ condition, isDark
     }
   };
 
+  const renderHotAnimation = () => (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Intense Sun */}
+      <div className="absolute top-16 right-16 w-40 h-40 rounded-full bg-gradient-to-br from-yellow-200 to-red-500 animate-pulse shadow-2xl">
+        <div className="absolute inset-0 rounded-full bg-yellow-100 animate-ping opacity-40"></div>
+        <div className="absolute inset-4 rounded-full bg-gradient-to-br from-yellow-100 to-orange-400 animate-spin-slow"></div>
+      </div>
+      
+      {/* Intense Sun Rays */}
+      {[...Array(16)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute top-20 right-20 w-2 h-32 bg-gradient-to-t from-yellow-400 via-orange-400 to-transparent origin-bottom animate-pulse"
+          style={{
+            transform: `rotate(${i * 22.5}deg) translateY(-80px)`,
+            animationDelay: `${i * 0.05}s`,
+          }}
+        />
+      ))}
+      
+      {/* Heat Waves */}
+      {[...Array(8)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-orange-300/30 to-transparent animate-pulse"
+          style={{
+            left: `${i * 12.5}%`,
+            animationDelay: `${i * 0.2}s`,
+            animationDuration: '2s',
+          }}
+        />
+      ))}
+      
+      {/* Floating Heat Particles */}
+      {[...Array(30)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute w-3 h-3 bg-orange-300 rounded-full opacity-60 animate-float"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            animationDelay: `${Math.random() * 3}s`,
+            animationDuration: `${2 + Math.random() * 3}s`,
+          }}
+        />
+      ))}
+    </div>
+  );
+
+  const renderWindyAnimation = () => (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Wind Lines */}
+      {[...Array(50)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute h-0.5 bg-gradient-to-r from-transparent via-cyan-300 to-transparent opacity-60"
+          style={{
+            left: '-100px',
+            top: `${Math.random() * 100}%`,
+            width: `${100 + Math.random() * 200}px`,
+            animationName: 'windFlow',
+            animationDuration: `${0.5 + Math.random() * 1}s`,
+            animationDelay: `${Math.random() * 2}s`,
+            animationIterationCount: 'infinite',
+            animationTimingFunction: 'linear',
+          }}
+        />
+      ))}
+      
+      {/* Swaying Trees/Grass Effect */}
+      {[...Array(20)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute bottom-0 w-1 bg-gradient-to-t from-green-600 to-green-400 origin-bottom"
+          style={{
+            left: `${Math.random() * 100}%`,
+            height: `${20 + Math.random() * 40}px`,
+            animationName: 'sway',
+            animationDuration: `${0.5 + Math.random() * 1}s`,
+            animationIterationCount: 'infinite',
+            animationTimingFunction: 'ease-in-out',
+            animationDirection: 'alternate',
+          }}
+        />
+      ))}
+      
+      {/* Flying Leaves */}
+      {[...Array(15)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute text-green-600 opacity-70"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            fontSize: `${12 + Math.random() * 8}px`,
+            animationName: 'flyingLeaves',
+            animationDuration: `${2 + Math.random() * 3}s`,
+            animationDelay: `${Math.random() * 2}s`,
+            animationIterationCount: 'infinite',
+            animationTimingFunction: 'ease-in-out',
+          }}
+        >
+          🍃
+        </div>
+      ))}
+    </div>
+  );
   const renderSunAnimation = () => (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {/* Animated Sun */}
@@ -229,6 +344,10 @@ const WeatherBackground: React.FC<WeatherBackgroundProps> = ({ condition, isDark
     switch (condition.type) {
       case 'clear':
         return renderSunAnimation();
+      case 'hot':
+        return renderHotAnimation();
+      case 'windy':
+        return renderWindyAnimation();
       case 'rain':
         return renderRainAnimation();
       case 'snow':

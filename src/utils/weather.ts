@@ -1,33 +1,42 @@
 import { WeatherCondition } from '../types/weather';
 
-export const getWeatherCondition = (weatherMain: string, icon: string): WeatherCondition => {
-  const isNight = icon.includes('night') || icon.includes('n');
-  
-  if (isNight) {
+export const getWeatherCondition = (weatherCode: number, temperature: number, windSpeed: number, isDay: boolean): WeatherCondition => {
+  // If it's night time, show night background
+  if (!isDay) {
     return { type: 'night', intensity: 'light' };
   }
   
-  const mainLower = weatherMain.toLowerCase();
+  // Check for high wind conditions first (windy background)
+  if (windSpeed > 10) { // Wind speed > 10 m/s is quite windy
+    return { type: 'windy', intensity: 'moderate' };
+  }
   
-  if (mainLower.includes('clear') || mainLower.includes('sunny')) {
+  // Check for hot weather (sunny/hot background)
+  if (temperature > 28) { // Hot weather > 28°C
+    return { type: 'hot', intensity: 'heavy' };
+  }
+  
+  // Map WMO weather codes to conditions
+  if (weatherCode === 0) {
     return { type: 'clear', intensity: 'light' };
   }
-  if (mainLower.includes('rain') || mainLower.includes('drizzle') || mainLower.includes('shower')) {
-    return { type: 'rain', intensity: 'moderate' };
-  }
-  if (mainLower.includes('snow') || mainLower.includes('blizzard') || mainLower.includes('sleet')) {
-    return { type: 'snow', intensity: 'moderate' };
-  }
-  if (mainLower.includes('thunder') || mainLower.includes('storm')) {
-    return { type: 'thunderstorm', intensity: 'heavy' };
-  }
-  if (mainLower.includes('mist') || mainLower.includes('fog') || mainLower.includes('haze')) {
-    return { type: 'fog', intensity: 'moderate' };
-  }
-  if (mainLower.includes('cloud') || mainLower.includes('overcast')) {
+  if (weatherCode >= 1 && weatherCode <= 3) {
     return { type: 'clouds', intensity: 'light' };
   }
+  if (weatherCode >= 45 && weatherCode <= 48) {
+    return { type: 'fog', intensity: 'moderate' };
+  }
+  if (weatherCode >= 51 && weatherCode <= 67) {
+    return { type: 'rain', intensity: 'moderate' };
+  }
+  if (weatherCode >= 71 && weatherCode <= 86) {
+    return { type: 'snow', intensity: 'moderate' };
+  }
+  if (weatherCode >= 95 && weatherCode <= 99) {
+    return { type: 'thunderstorm', intensity: 'heavy' };
+  }
   
+  // Default to clear if unknown
   return { type: 'clear', intensity: 'light' };
 };
 
